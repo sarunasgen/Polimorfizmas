@@ -15,6 +15,7 @@ namespace Polimorfizmas
                 Console.WriteLine("2. Display All Products");
                 Console.WriteLine("3. Find All Fruits");
                 Console.WriteLine("4. Find All Home Appliances");
+                Console.WriteLine("5. Load from files");
                 string selectionInput = Console.ReadLine();
                 switch(selectionInput)
                 {
@@ -66,6 +67,9 @@ namespace Polimorfizmas
                         break;
                     case "4":
                         shopService.DisplayProducts(shopService.GetAllHomeAppliances());
+                        break;
+                    case "5":
+                        shopService.ReadAllProducts();
                         break;
                 }
             }

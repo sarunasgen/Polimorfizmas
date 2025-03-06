@@ -89,8 +89,8 @@ namespace Polimorfizmas.Services
         }
         public void SaveProductsToFile()
         {
-            List<Fruit> fruits = new List<Fruit>();
-            List<HomeAppliances> ha = new List<HomeAppliances>();
+            List<Product> fruits = new List<Product>();
+            List<Product> ha = new List<Product>();
             foreach(Product product in Products)
             {
                 if(product is Fruit)
@@ -102,26 +102,37 @@ namespace Polimorfizmas.Services
                     ha.Add((HomeAppliances)product);
                 }
             }
-            SaveFruits(fruits);
-            SaveHomeAppliances(ha);
+            //SaveFruits(fruits);
+            //SaveHomeAppliances(ha);
+            SaveProductsOfOneKindToFile(fruits, "Fruits.csv");
+            SaveProductsOfOneKindToFile(ha, "HomeAppliances.csv");
         }
-        private void SaveFruits(List<Fruit> fruits, string filePath = "Fruits.csv")
+        private void SaveProductsOfOneKindToFile(List<Product> productsToSave, string filePath)
         {
             StreamWriter sw = new StreamWriter(filePath);
-            foreach(Fruit item in fruits)
+            foreach (Product item in productsToSave)
             {
                 sw.WriteLine(item.ToCsvString());
             }
             sw.Close();
         }
-        private void SaveHomeAppliances(List<HomeAppliances> appliances, string filePath = "HomeAppliances.csv")
-        {
-            StreamWriter sw = new StreamWriter(filePath);
-            foreach (HomeAppliances item in appliances)
-            {
-                sw.WriteLine(item.ToCsvString());
-            }
-            sw.Close();
-        }
+        //private void SaveFruits(List<Fruit> fruits, string filePath = "Fruits.csv")
+        //{
+        //    StreamWriter sw = new StreamWriter(filePath);
+        //    foreach(Fruit item in fruits)
+        //    {
+        //        sw.WriteLine(item.ToCsvString());
+        //    }
+        //    sw.Close();
+        //}
+        //private void SaveHomeAppliances(List<HomeAppliances> appliances, string filePath = "HomeAppliances.csv")
+        //{
+        //    StreamWriter sw = new StreamWriter(filePath);
+        //    foreach (HomeAppliances item in appliances)
+        //    {
+        //        sw.WriteLine(item.ToCsvString());
+        //    }
+        //    sw.Close();
+        //}
     }
 }

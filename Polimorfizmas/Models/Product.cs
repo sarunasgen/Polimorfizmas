@@ -21,5 +21,9 @@ namespace Polimorfizmas.Models
         {
             return ((Product)obj).Code == Code;
         }
+        public virtual string ToCsvString() 
+        { 
+            return string.Empty; 
+        }
     }
 }

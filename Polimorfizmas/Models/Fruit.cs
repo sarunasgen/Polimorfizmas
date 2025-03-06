@@ -21,7 +21,7 @@ namespace Polimorfizmas.Models
             Code = values[2];
             WeightInGrams = int.Parse(values[3]);
         }
-        public string ToCsvString()
+        public override string ToCsvString()
         {
             return $"{Name},{UnitPrice},{Code},{WeightInGrams}";
         }

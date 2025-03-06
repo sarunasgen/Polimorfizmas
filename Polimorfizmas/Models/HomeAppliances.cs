@@ -26,7 +26,7 @@ namespace Polimorfizmas.Models
             Brand = values[4];
             Model = values[5];
         }
-        public string ToCsvString()
+        public override string ToCsvString()
         {
             return $"{Name},{UnitPrice},{Code},{IsElectric},{Brand},{Model}";
         }
